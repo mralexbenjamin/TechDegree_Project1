@@ -8,10 +8,10 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * (2) `quotes` arrays 
+ * `quotes` arrays 
 ***/
 
-var InspirationalQuotes = [
+var quotes = [
   {
     quote: "What lies behind you and what lies in front of you, pales in comparison to what lies inside of you.",
     source: "Ralph Waldo Emerson",
@@ -40,37 +40,14 @@ var InspirationalQuotes = [
   }
 ];
 
-
-var FunnyQuotes = [
-  {
-    quote: "Why did the bicycle fall over?",
-    source: "Because it was two tired."
-  },
-  {
-    quote: "What do you call an alligator detective?",
-    source: "An investi-gator."
-  },
-  {
-    quote: "Why did the scarecrow win an award?",
-    source: "Because he was outstanding in his field."
-  },  
-  {
-    quote: "Why can't your nose be 12 inches long?",
-    source: "Because then it would be a foot."
-  },
-  {
-    quote: "Why does a chicken coop only have two doors?",
-    source: "If it had four doors, it would be called a chicken sedan."
-  }
-];
 /***
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote(quotes)
+function getRandomQuote(quoteArray)
 {
-  var RandomArray= Math.floor( Math.random() * quotes.length );
-  return quotes[RandomArray];
+  var RandomArray= Math.floor( Math.random() * quoteArray.length );
+  return quoteArray[RandomArray];
 }
 
 
@@ -118,12 +95,8 @@ function printQuote(SelectedQuote)
   document.getElementById('quote-box').innerHTML = htmlString;
 }
 
-function printInspirationalQuote() { 
-  printQuote(InspirationalQuotes);
-}
-
-function printFunnyQuote() {
-  printQuote(FunnyQuotes);
+function getQuote() {
+  printQuote(quotes);
 }
 
 /***
@@ -131,5 +104,4 @@ function printFunnyQuote() {
  * DO NOT CHANGE THE OF CODE BELOW!!
 ***/
 
-document.getElementById('inspirational-quote').addEventListener("click", printInspirationalQuote, false);
-document.getElementById('funny-quote').addEventListener("click", printFunnyQuote, false);
+document.getElementById('new-quote').addEventListener("click", getQuote, false);
